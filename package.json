@@ -1,0 +1,98 @@
+{
+  "name": "store-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "4.11.0",
+    "@material-ui/icons": "4.9.1",
+    "@types/google-map-react": "2.1.0",
+    "google-map-react": "2.1.9",
+    "history": "5.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-material-ui-carousel": "2.0.1",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.4.3",
+    "typescript": "3.9.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@material-ui/lab": "4.0.0-alpha.56",
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "10.4.7",
+    "@testing-library/react-hooks": "3.4.1",
+    "@testing-library/user-event": "12.1.1",
+    "@types/jest": "26.0.14",
+    "@types/lodash": "4.14.162",
+    "@types/node": "14.11.2",
+    "@types/qs": "6.9.5",
+    "@types/react": "16.9.49",
+    "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "5.1.6",
+    "@typescript-eslint/eslint-plugin": "2.29.0",
+    "@typescript-eslint/parser": "2.30.0",
+    "axios": "0.21.0",
+    "axios-case-converter": "0.6.0",
+    "eslint": "6.6.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-config-react": "1.1.7",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import-helpers": "1.1.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "3.0.0",
+    "eslint-plugin-testing-library": "3.0.4",
+    "http-proxy-middleware": "1.0.6",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11",
+    "lodash": "4.17.20",
+    "prettier": "2.1.2",
+    "pretty-quick": "2.0.1",
+    "react-query": "2.25.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:commit": "commitlint --from=HEAD~1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "NODE_ENV=production lint-staged",
+      "pre-push": "NODE_ENV=production CI=true yarn lint:commit && yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "pretty-quick --staged",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{css, json}": [
+      "pretty-quick --staged",
+      "git add"
+    ]
+  }
+}
