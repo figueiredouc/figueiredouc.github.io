@@ -412,6 +412,11 @@ h2 {
   color: #9a7d1a;
 }
 
+.lang-ts {
+  background: #dde7f5;
+  color: #2a5f99;
+}
+
 .project-arrow {
   font-size: 1.125rem;
   color: var(--muted);
